@@ -6,3 +6,8 @@ Portfolio Application For Learning C#, Api's, .NET, Angular.
 C#, Angular, Git, Bootstrap 5, .NET, 
 
 ## Features
+
+- Authentication (Login/Logout)
+- Registration 
+- Chat between users.
+- Viewable User Profiles
