@@ -17,3 +17,6 @@ C#, Angular, Git, Bootstrap 5, .NET,
 - Connecting Angular Applications to C# .Net backends
 - Salting and Hashing for password protection 
   - Eventually used ASP.NET Identity
+- HMAC Cryptoghraphy
+- Data Transfer Objects
+- API level validation
