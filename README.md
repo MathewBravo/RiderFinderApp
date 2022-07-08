@@ -10,4 +10,4 @@ C#, Angular, Git, Bootstrap 5, .NET,
 - Authentication (Login/Logout)
 - Registration 
 - Chat between users.
-- Viewable User Profiles
+- Viewable user profiles
