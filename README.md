@@ -11,3 +11,9 @@ C#, Angular, Git, Bootstrap 5, .NET,
 - Registration 
 - Chat between users.
 - Viewable user profiles
+
+## What I Learned
+
+- Connecting Angular Applications to C# .Net backends
+- Salting and Hashing for password protection 
+  - Eventually used ASP.NET Identity
