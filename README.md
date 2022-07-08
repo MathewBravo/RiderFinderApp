@@ -21,3 +21,5 @@ C#, Angular, Git, Bootstrap 5, .NET, Postman
 - Data Transfer Objects
 - API level validation
 - JSON Web Tokens
+  - Symmetric vs Asymmetric Encryption
+
