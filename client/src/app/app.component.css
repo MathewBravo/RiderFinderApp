@@ -1,0 +1,5 @@
+.forStyling {
+  padding-top: 100px;
+  height: calc(100vh - 3px);
+  background-color: #f5eddc;
+}

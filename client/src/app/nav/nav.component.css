@@ -1,0 +1,10 @@
+.dropdown-toggle {
+    cursor: pointer;
+}
+.modal-body {
+    display: inline-block;
+}
+
+.form-group {
+    margin-bottom: 0.5rem;
+}

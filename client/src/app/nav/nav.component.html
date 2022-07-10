@@ -1,0 +1,100 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Rider Finder</a>
+        <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse"> -->
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Riders</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Group Rides</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Messages</a>
+            </li>
+        </ul>
+        <div
+            class="dropdown"
+            *ngIf="accountService.currentUser$ | async"
+            dropdown
+        >
+            <button
+                class="dropdown-toggle btn btn-secondary text-light"
+                dropdownToggle
+            >
+                Welcome User
+            </button>
+            <div class="dropdown-menu" *dropdownMenu>
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">Settings</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" (click)="logoutHandler()"
+                    >Logout</a
+                >
+            </div>
+        </div>
+        <button
+            *ngIf="(accountService.currentUser$ | async) === null"
+            class="btn btn-outline-success"
+            (click)="openModal(template)"
+        >
+            Sign In
+        </button>
+        <ng-template #template class="mt-5">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">Sign In</h4>
+                <button
+                    type="button"
+                    class="btn-close close pull-right"
+                    aria-label="Close"
+                    (click)="modalRef?.hide()"
+                >
+                    <span aria-hidden="true" class="visually-hidden"
+                        >&times;</span
+                    >
+                </button>
+            </div>
+            <div class="modal-body">
+                <form
+                    #loginForm="ngForm"
+                    class="text-center"
+                    role="search"
+                    (ngSubmit)="loginHandler()"
+                    autocomplete="off"
+                >
+                    <div class="form-group">
+                        <input
+                            name="userName"
+                            [(ngModel)]="model.userName"
+                            class="form-control me-2"
+                            type="text"
+                            placeholder="UserName"
+                            aria-label="Search"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <input
+                            name="password"
+                            [(ngModel)]="model.password"
+                            class="form-control me-2"
+                            type="password"
+                            placeholder="Password"
+                            aria-label="Search"
+                        />
+                    </div>
+                    <button
+                        class="modal-button btn btn-success btn-lg"
+                        type="submit"
+                        (click)="closeModal()"
+                    >
+                        Login
+                    </button>
+                </form>
+            </div>
+        </ng-template>
+    </div>
+    <!-- </div> -->
+</nav>

@@ -1,0 +1,81 @@
+<div class="d-flex justify-content-center">
+  <div class="card card-outline-secondary bg-secondary text-white">
+    <div class="card-header">
+      <h3 class="mb-0">Sign Up</h3>
+    </div>
+    <div class="card-body">
+      <form
+        autocomplete="off"
+        (ngSubmit)="registerHandler()"
+        class="form"
+        role="form"
+        ngNativeValidate
+      >
+        <div class="form-group">
+          <label for="inputName">Username</label>
+          <input
+            class="form-control"
+            id="inputName"
+            placeholder="Username"
+            name="userName"
+            required
+            type="text"
+            [(ngModel)]="model.userName"
+          />
+        </div>
+        <div class="form-group">
+          <label for="inputEmail">Email</label>
+          <input
+            class="form-control"
+            id="inputEmail"
+            placeholder="Email"
+            required
+            name="email"
+            type="email"
+            [(ngModel)]="model.email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="inputPassword">Password</label>
+          <input
+            class="form-control"
+            id="inputPassword"
+            placeholder="Password"
+            required
+            name="password"
+            type="password"
+            [(ngModel)]="model.password"
+          />
+          <small class="form-text text-muted" id="passwordHelpBlock"
+            >Your password must be 8-20 characters long, contain letters and
+            numbers, and must not contain spaces, special characters, or
+            emoji.</small
+          >
+        </div>
+        <!-- <div class="form-group">
+          <label for="inputVerify">Verify</label>
+          <input
+            class="form-control"
+            id="inputVerify"
+            placeholder="Password (again)"
+            required=""
+            type="password"
+            [(ngModel)]="model.verify"
+          />
+        </div> -->
+        <div class="form-group">
+          <button class="btn mt-3 btn-dark btn-lg float-right" type="submit">
+            Register
+          </button>
+          <button
+            class="btn mt-3 ms-3 btn-light btn-lg float-right"
+            type="button"
+            (click)="cancelHandler()"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

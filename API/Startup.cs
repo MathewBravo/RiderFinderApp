@@ -29,7 +29,7 @@ namespace API
             services.AddCors();
 
             services.AddIdentityServices(_configuration);
-            
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPIv5", Version = "v1" });
@@ -51,7 +51,7 @@ namespace API
 
             app.UseRouting();
 
-            app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200")); // allow any origin to access the api
+            app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200")); // allow any origin to access the api
 
             app.UseAuthentication(); // this is important to call before app.UseAuthorization()
 
