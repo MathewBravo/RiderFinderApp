@@ -1,8 +1,7 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { AccountService } from '../_services/account.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { Observable } from 'rxjs';
-import { User } from '../_models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -14,7 +13,7 @@ export class NavComponent implements OnInit {
   model: any = {};
 ;
 
-  constructor(public accountService: AccountService, private modalService: BsModalService) { }
+  constructor(public accountService: AccountService, private modalService: BsModalService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -30,6 +29,7 @@ export class NavComponent implements OnInit {
     console.log(this.model);
     this.accountService.loginHandler(this.model).subscribe(data => {
       console.log(data);
+      this.router.navigateByUrl('/members');
      
     }, err => {
       console.log(err);
@@ -38,7 +38,7 @@ export class NavComponent implements OnInit {
 
   logoutHandler(){
     this.accountService.logoutHandler();
-   
+    this.router.navigateByUrl('/');
   }
 
 }

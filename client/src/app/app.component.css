@@ -3,3 +3,9 @@
   height: calc(100vh - 3px);
   background-color: #f5eddc;
 }
+.bodyStyle {
+  display: flex;
+  flex-wrap: inherit;
+  align-items: center;
+  justify-content: center;
+}
