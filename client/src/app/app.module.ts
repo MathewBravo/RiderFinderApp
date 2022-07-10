@@ -15,6 +15,7 @@ import { UserListComponent } from './users/user-list/user-list.component';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { MessagesComponent } from './messages/messages.component';
     UserListComponent,
     UserDetailsComponent,
     ListsComponent,
-    MessagesComponent
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +35,13 @@ import { MessagesComponent } from './messages/messages.component';
     BrowserAnimationsModule,
     FormsModule,
     BsDropdownModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    ToastrModule.forRoot(
+      {
+        positionClass: 'toast-bottom-right',
+        preventDuplicates: true,
+      }
+     ),
   ],
   providers: [],
   bootstrap: [AppComponent]

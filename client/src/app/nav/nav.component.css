@@ -20,4 +20,7 @@
   font-weight: bold;
   border: 0.1rem solid #fff;
   background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+  margin-left: 1rem;
+  margin-right: 1rem;
 }

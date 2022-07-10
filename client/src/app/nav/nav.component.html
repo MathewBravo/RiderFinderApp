@@ -6,6 +6,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse"> -->
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <ng-container  *ngIf="accountService.currentUser$ | async">
+
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/members']" routerLinkActive="active">Riders</a>
             </li>
@@ -15,18 +17,19 @@
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/messages']" routerLinkActive="active">Messages</a>
             </li>
+          </ng-container>
         </ul>
         <div
             class="dropdown"
             *ngIf="accountService.currentUser$ | async"
             dropdown
         >
-            <button
-                class="dropdown-toggle btn btn-secondary text-light"
+            <a
+                class="dropdown-toggle  text-light"
                 dropdownToggle
             >
-                Welcome User
-            </button>
+                Logged In
+            </a>
             <div class="dropdown-menu" *dropdownMenu>
                 <a class="dropdown-item" href="#">Profile</a>
                 <a class="dropdown-item" href="#">Settings</a>
