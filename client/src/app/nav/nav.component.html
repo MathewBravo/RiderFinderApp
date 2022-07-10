@@ -21,14 +21,14 @@
         </ul>
         <div
             class="dropdown"
-            *ngIf="accountService.currentUser$ | async"
+            *ngIf="(accountService.currentUser$ | async) as user"
             dropdown
         >
             <a
                 class="dropdown-toggle  text-light"
                 dropdownToggle
             >
-                Logged In
+                {{user.userName}}
             </a>
             <div class="dropdown-menu" *dropdownMenu>
                 <a class="dropdown-item" href="#">Profile</a>
