@@ -25,4 +25,4 @@ C#, Angular, Git, Bootstrap 5, .NET, Postman, TypeScript, Javascript
 - TypeScript types
 - Working with environments
 - Repository Patterns to reduce query logic
-- 
+  - and it's disadvantages (double abstraction, more code)
