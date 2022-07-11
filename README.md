@@ -1,9 +1,9 @@
-# RiderFinderApp
+# Rider Finder WebApp 
 Portfolio Application For Learning C#, Api's, .NET, Angular.
 
 ## Technologies Used
 
-C#, Angular, Git, Bootstrap 5, .NET, Postman
+C#, Angular, Git, Bootstrap 5, .NET, Postman, TypeScript, Javascript, AutoMapper
 
 ## Features
 
@@ -22,4 +22,8 @@ C#, Angular, Git, Bootstrap 5, .NET, Postman
 - API level validation
 - JSON Web Tokens
   - Symmetric vs Asymmetric Encryption
-
+- TypeScript types
+- Working with environments
+- Repository Patterns to reduce query logic
+  - and it's disadvantages (double abstraction, more code)
+- Shaping data to avoid object cycling
