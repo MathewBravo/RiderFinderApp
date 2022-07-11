@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Rider } from 'src/app/_models/rider';
+import { RidersService } from 'src/app/_services/riders.service';
 
 @Component({
   selector: 'app-user-list',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
+  users: Rider[];
 
-  constructor() { }
+  constructor(private riderService: RidersService) { }
 
   ngOnInit(): void {
+    this.loadRiders();
+  }
+
+  loadRiders(){
+    this.riderService.getRidersHandler().subscribe(riders => {
+      this.users = riders;
+    });
   }
 
 }

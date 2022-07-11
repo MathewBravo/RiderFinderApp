@@ -1,34 +1,46 @@
 using API.Data;
+using API.DTOs;
 using API.Entities;
+using API.Interfaces;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    // Not needed, but I'm leaving it here for reference.
-    // These are called in the BaseApiController.cs file.
-    // [ApiController] This attribute makes the class act as a controller.
-    // [Route("/api/[controller]")] This attribute defines the route for the class.
-    public class UsersController : BaseApiController
+  // Not needed, but I'm leaving it here for reference.
+  // These are called in the BaseApiController.cs file.
+  // [ApiController] This attribute makes the class act as a controller.
+  // [Route("/api/[controller]")] This attribute defines the route for the class.
+  [Authorize] // This attribute requires the user to be logged in to access the class.
+  public class UsersController : BaseApiController
+  {
+    private readonly IUserRepository _userRepository;
+    private readonly IMapper _mapper;
+    public UsersController(IUserRepository userRepository, IMapper mapper)
     {
-        private readonly DataContext _context;
-        public UsersController(DataContext context)
-        {
-            _context = context;
-        }
-
-        // gets all users
-        [HttpGet]
-        [AllowAnonymous] // This attribute allows anonymous users to access this method.
-        public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers() => await _context.Users.ToListAsync();
-
-
-        [Authorize] // This attribute makes the method only accessible to users who are logged in.
-        // gets a user by id
-        [HttpGet("{id}")]
-        // Have to remove IEnumerable because not returning list. (Type Conversion)
-        public async Task<ActionResult<AppUser>> GetUserById(int id) => await _context.Users.FindAsync(id);
-
+      _mapper = mapper;
+      _userRepository = userRepository;
     }
+
+    [HttpGet]// This attribute allows anonymous users to access this method.
+    public async Task<ActionResult<IEnumerable<RiderDto>>> GetUsers()
+    {
+      var users = await _userRepository.GetUsersAsync();
+      var returnUsers = _mapper.Map<IEnumerable<RiderDto>>(users);
+      return Ok(returnUsers);
+    }
+
+
+
+    // gets a user by id
+    [HttpGet("{username}")]
+    // Have to remove IEnumerable because not returning list. (Type Conversion)
+    public async Task<ActionResult<RiderDto>> GetUser(string username){
+      var users = await _userRepository.GetUserByUsernameAsync(username);
+      return _mapper.Map<RiderDto>(users);
+    }
+
+  }
 }
