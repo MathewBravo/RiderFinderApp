@@ -24,3 +24,5 @@ C#, Angular, Git, Bootstrap 5, .NET, Postman, TypeScript, Javascript
   - Symmetric vs Asymmetric Encryption
 - TypeScript types
 - Working with environments
+- Repository Patterns to reduce query logic
+- 
