@@ -3,7 +3,7 @@ Portfolio Application For Learning C#, Api's, .NET, Angular.
 
 ## Technologies Used
 
-C#, Angular, Git, Bootstrap 5, .NET, Postman
+C#, Angular, Git, Bootstrap 5, .NET, Postman, TypeScript, Javascript
 
 ## Features
 
@@ -22,4 +22,4 @@ C#, Angular, Git, Bootstrap 5, .NET, Postman
 - API level validation
 - JSON Web Tokens
   - Symmetric vs Asymmetric Encryption
-
+- TypeScript types
