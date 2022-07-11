@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
@@ -16,6 +16,10 @@ import { UserDetailsComponent } from './users/user-details/user-details.componen
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ToastrModule } from 'ngx-toastr';
+import { ErrorTestsComponent } from './errors/error-tests/error-tests.component';
+import { ErrorInterceptor } from './_interceptors/error.interceptor';
+import { NotFoundComponent } from './errors/not-found/not-found.component';
+import { ServerErrorsComponent } from './errors/server-errors/server-errors.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,9 @@ import { ToastrModule } from 'ngx-toastr';
     UserDetailsComponent,
     ListsComponent,
     MessagesComponent,
+    ErrorTestsComponent,
+    NotFoundComponent,
+    ServerErrorsComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +50,9 @@ import { ToastrModule } from 'ngx-toastr';
       }
      ),
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
