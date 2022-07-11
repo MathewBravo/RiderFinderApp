@@ -23,3 +23,4 @@ C#, Angular, Git, Bootstrap 5, .NET, Postman, TypeScript, Javascript
 - JSON Web Tokens
   - Symmetric vs Asymmetric Encryption
 - TypeScript types
+- Working with environments
