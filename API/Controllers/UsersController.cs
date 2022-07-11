@@ -27,9 +27,8 @@ namespace API.Controllers
     [HttpGet]// This attribute allows anonymous users to access this method.
     public async Task<ActionResult<IEnumerable<RiderDto>>> GetUsers()
     {
-      var users = await _userRepository.GetUsersAsync();
-      var returnUsers = _mapper.Map<IEnumerable<RiderDto>>(users);
-      return Ok(returnUsers);
+      var users = await _userRepository.GetRidersAsync();
+      return Ok(users);
     }
 
 
@@ -37,9 +36,10 @@ namespace API.Controllers
     // gets a user by id
     [HttpGet("{username}")]
     // Have to remove IEnumerable because not returning list. (Type Conversion)
-    public async Task<ActionResult<RiderDto>> GetUser(string username){
-      var users = await _userRepository.GetUserByUsernameAsync(username);
-      return _mapper.Map<RiderDto>(users);
+    public async Task<ActionResult<RiderDto>> GetUser(string username)
+    {
+      return await _userRepository.GetRiderAsync(username);
+
     }
 
   }
