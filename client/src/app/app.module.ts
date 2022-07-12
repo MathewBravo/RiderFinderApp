@@ -54,7 +54,19 @@ import { UserDetailCardComponent } from './users/user-details/user-detail-card/u
         positionClass: 'toast-bottom-right',
         preventDuplicates: true,
       }
-     ),
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      ),
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},

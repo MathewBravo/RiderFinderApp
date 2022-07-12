@@ -1,10 +1,13 @@
+
 .color-block {
-  height: 89vh;
+  min-height: 90vh;
+  height: auto;
   width: 85vw;
   margin-top: 5rem;
   background-color: #555;
 }
 .profile-picture {
+  border-radius: 3rem;
   padding: 1rem;
   height: 20rem;
   width: 20rem;
