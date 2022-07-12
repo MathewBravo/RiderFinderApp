@@ -1,0 +1,36 @@
+.color-block {
+  height: 89vh;
+  width: 85vw;
+  margin-top: 5rem;
+  background-color: #555;
+}
+.profile-picture {
+  padding: 1rem;
+  height: 20rem;
+  width: 20rem;
+}
+.img-info {
+  display: flex;
+}
+.name-message {
+  display: flex;
+  width: 100%;
+}
+
+.rider-name {
+  padding-bottom: 1rem;
+  padding-right: 1rem;
+}
+.message-rider:hover {
+  transform: scale(1.3);
+}
+
+.rider-info {
+  padding-top: 2rem;
+  padding-left: 1rem;
+}
+
+.rider-bio {
+  padding: 2rem;
+  color: #fff;
+}

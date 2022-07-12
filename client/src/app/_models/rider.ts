@@ -2,7 +2,7 @@ import { RiderRoutes } from "./riderroutes";
 
 export interface Rider{
     id: number;
-    username: string;
+    userName: string;
     name: string;
     email: string;
     city: string;
@@ -12,7 +12,8 @@ export interface Rider{
     createdAt: Date;
     updatedAt: Date;
     gender: string;
-    FTP: string;
+    ftp: string;
+    age: number;
     rideTypes: string;
     routes: RiderRoutes[];
 }

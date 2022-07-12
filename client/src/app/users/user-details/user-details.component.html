@@ -1,1 +1,33 @@
-<p>user-details works!</p>
+<div class="profile-page">
+  <div class="color-block">
+    <div class="img-info">
+      <img src="{{rider.imgUrl}}" alt="{{rider.name}}" class="profile-picture">
+      <div class="rider-info text-white">
+        <div class="name-message">
+          <h2 *ngIf="rider" class="text-white rider-name" >{{rider.userName}}</h2>
+          <h2 class="message-rider"><span class="material-symbols-outlined text-white">
+            chat_bubble
+            </span></h2>
+        </div>
+        <h5 class='text-white'>From: </h5>
+        <p>{{rider.country}}</p>
+        <h5 class='text-white'>Age: </h5>
+        <p>{{rider.age}}</p>
+        <h5 class='text-white'>FTP: </h5>
+        <p>{{rider.ftp}}</p>
+      </div>
+    </div>
+
+
+    <div class="rider-bio">
+      <h5 class='text-white'>Bio: </h5>
+      <p>{{rider.bio}}</p>
+    </div>
+    <div class="row m-3">
+      <div *ngFor="let route of rider.routes" class="col-md-4">
+       <app-user-detail-card [route]="route" ></app-user-detail-card>
+      </div>
+  </div>
+
+  
+</div>

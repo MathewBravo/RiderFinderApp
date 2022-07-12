@@ -1,6 +1,5 @@
 .forStyling {
-  padding-top: 100px;
-  height: calc(100vh - 3px);
+  padding-top: 5rem;
   background-color: #f5eddc;
 }
 .bodyStyle {

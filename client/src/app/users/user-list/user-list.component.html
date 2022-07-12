@@ -1,1 +1,8 @@
-<p>user-list works!</p>
+<div class="container mx-auto mt-4">
+  <div class="row">
+    <div *ngFor="let rider of users" class="col-md-4">
+      <app-rider-card [rider]="rider"></app-rider-card>
+    </div>
+  </div>
+</div>
+

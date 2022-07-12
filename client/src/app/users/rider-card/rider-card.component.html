@@ -1,0 +1,10 @@
+<div class="card" style="width: 18rem;" (click)="testClickHandler()" routerLink='/rider/{{rider.userName}}'>
+  <img src="{{rider.imgUrl}}" alt="Profile Pic" class="card-img-top" >
+  <div class="card-body">
+    <h5 class="card-title">{{rider.name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{rider.country}}</h6>
+    <p class="card-text">FTP: {{rider.ftp}}</p>
+    <p class="card-text">Riding Style: {{rider.rideTypes}} </p>
+    <p class="card-text">Shared Routes: {{rider.routes.length}}</p>
+  </div>
+  </div>
