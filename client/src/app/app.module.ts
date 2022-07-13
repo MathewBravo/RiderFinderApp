@@ -23,7 +23,7 @@ import { ServerErrorsComponent } from './errors/server-errors/server-errors.comp
 import { RiderCardComponent } from './users/rider-card/rider-card.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { UserDetailCardComponent } from './users/user-details/user-detail-card/user-detail-card.component';
-
+import { UserEditProfileComponent } from './users/user-edit-profile/user-edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +40,7 @@ import { UserDetailCardComponent } from './users/user-details/user-detail-card/u
     ServerErrorsComponent,
     RiderCardComponent,
     UserDetailCardComponent,
+    UserEditProfileComponent,
   ],
   imports: [
     BrowserModule,

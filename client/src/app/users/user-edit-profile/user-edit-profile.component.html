@@ -1,0 +1,36 @@
+<div *ngIf="rider" class="edit-profile">
+  <h1>{{ rider.name }}</h1>
+  <div class="display-Name div">
+    <label for="displayName">Display Name</label>
+    <input
+      class="readonlyInput"
+      type="text"
+      name="displayName"
+      readonly="true"
+      placeholder="{{ rider.userName }}"
+    />
+  </div>
+  <div class="country-city div">
+    <label for="country">Country:</label>
+    <input
+      class="input"
+      type="text"
+      name="country"
+      [(ngModel)]="rider.country"
+    />
+    <label for="city">City:</label>
+    <input class="input" type="text" name="city" [(ngModel)]="rider.city" />
+  </div>
+  <div class="current-ftp div">
+    <label for="ftp">FTP:</label>
+    <input [(ngModel)]="rider.ftp" class="input" type="text" name="ftp" />
+  </div>
+  <div class="current-bio">
+    <p class="bio-label">Bio:</p>
+    <textarea
+      class="form-control"
+      [(ngModel)]="rider.bio"
+      name="bio"
+    ></textarea>
+  </div>
+</div>

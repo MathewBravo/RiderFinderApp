@@ -9,15 +9,18 @@ import { AuthGuard } from './_gaurds/auth.guard';
 import { ErrorTestsComponent } from './errors/error-tests/error-tests.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorsComponent } from './errors/server-errors/server-errors.component';
+import { UserEditProfileComponent } from './users/user-edit-profile/user-edit-profile.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {
-    path: '', runGuardsAndResolvers: 'always', canActivate: [AuthGuard], children: [
-      {path: 'riders', component: UserListComponent, canActivate: [AuthGuard]},
+    path: '', runGuardsAndResolvers: 'always', canActivate: [AuthGuard], 
+    children: [
+      {path: 'riders', component: UserListComponent},
+      {path: 'rider/edit', component: UserEditProfileComponent, pathMatch: 'full'},
       {path: 'rider/:username', component: UserDetailsComponent},
       {path: 'lists', component: ListsComponent},
-      {path:'messages', component: MessagesComponent},
+      {path: 'messages', component: MessagesComponent},
     ]
   },
   {path: 'errors', component: ErrorTestsComponent},

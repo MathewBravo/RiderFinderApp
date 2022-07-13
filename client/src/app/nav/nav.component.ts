@@ -33,7 +33,7 @@ export class NavComponent implements OnInit {
   loginHandler() {
     this.accountService.loginHandler(this.model).subscribe(data => {
       console.log(data);
-      this.router.navigateByUrl('/members');
+      this.router.navigateByUrl('/riders');
     }, err => {
       console.log(err);
     })

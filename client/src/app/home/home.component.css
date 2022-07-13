@@ -1,1 +1,37 @@
+.btn:hover {
+  background-color: aquamarine;
+  transform: translateY(-0.2rem);
+  box-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.2);
+}
 
+.btn {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  background-color: #fff275;
+  transition: all 0.2s ease-in-out;
+  border-radius: 0.5rem;
+}
+.image-wrapper {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+.offer-image {
+  opacity: 0.8;
+  width: 100%;
+}
+
+.footer {
+  background-color: #a23e48;
+  padding: 1rem;
+  text-align: center;
+  width: 100vw;
+}
+
+.row {
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+}

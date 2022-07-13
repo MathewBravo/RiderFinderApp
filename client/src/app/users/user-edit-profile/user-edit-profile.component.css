@@ -1,0 +1,53 @@
+.edit-profile {
+  min-height: 95vh;
+  background-color: brown;
+  width: 85vw;
+  padding: 2rem;
+}
+
+.readonlyInput {
+  margin-left: 2rem;
+}
+
+.readonlyInput:focus {
+  background-color: darkgray;
+}
+
+.readonlyInput::placeholder {
+  color: black;
+}
+label {
+  font-size: 1.5rem;
+}
+
+.country-city {
+  margin-top: 2rem;
+}
+
+.input {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.input:focus {
+  background-color: rgba(144, 238, 144, 0.9);
+}
+
+.div {
+  margin-top: 1rem;
+}
+
+textarea {
+  margin-top: 1rem;
+  width: 80%;
+  height: 15rem;
+}
+
+.current-bio {
+  vertical-align: middle;
+}
+
+.bio-label {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}

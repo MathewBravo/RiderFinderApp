@@ -1,3 +1,19 @@
 .card {
   width: 45rem;
+  background-color: #bb6733;
+}
+.register {
+  background-color: #fff275;
+}
+
+.register:hover {
+  background-color: aquamarine;
+}
+
+.cancel {
+  background-color: #a23e48;
+}
+
+.cancel:hover {
+  background-color: #b18488;
 }
