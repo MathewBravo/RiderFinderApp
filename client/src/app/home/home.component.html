@@ -5,15 +5,21 @@
     <h1 class="display-6 font-weight-normal">Find Riders Near You</h1>
     <p class="lead font-weight-bold">
       Riding is better with others. Find group rides and fellow cyclists near
-      you. All you need to do is sign up!
+      you. All you need to do is <span *ngIf="!currentUser">sign up!</span> <span *ngIf="currentUser"> search!</span>
     </p>
-    <button
+    <button *ngIf="!currentUser"
       (click)="registerModeHandler()"
       class="btn striped-shadow dark"
       href="#"
     >
       Sign Up
     </button>
+    <button *ngIf="currentUser"
+    class="btn striped-shadow dark"
+    routerLink="/riders"
+  >
+    Find Riders
+  </button>
   </div>
   <div *ngIf="registerMode">
     <app-register

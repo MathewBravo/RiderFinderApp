@@ -17,7 +17,7 @@ namespace API.Helpers
       // CreateMap<Source, Destination>();
       CreateMap<AppUser, RiderDto>().ForMember(dest => dest.Age, opt => opt.MapFrom(src => src.DateOfBirth.CalculateAge()));
       CreateMap<Route, RouteDto>();
-
+      CreateMap<RiderUpdateDto, AppUser>(); 
     }
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Rider } from 'src/app/_models/rider';
 import { RidersService } from 'src/app/_services/riders.service';
 
@@ -8,18 +9,12 @@ import { RidersService } from 'src/app/_services/riders.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  users: Rider[];
+  users$: Observable<Rider[]>;
 
   constructor(private riderService: RidersService) { }
 
   ngOnInit(): void {
-    this.loadRiders();
-  }
+    this.users$ = this.riderService.getRidersHandler();
 
-  loadRiders(){
-    this.riderService.getRidersHandler().subscribe(riders => {
-      this.users = riders;
-    });
   }
-
 }

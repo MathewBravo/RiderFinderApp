@@ -10,6 +10,8 @@ import { ErrorTestsComponent } from './errors/error-tests/error-tests.component'
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorsComponent } from './errors/server-errors/server-errors.component';
 import { UserEditProfileComponent } from './users/user-edit-profile/user-edit-profile.component';
+import { PreventUnsavedGuard } from './_gaurds/prevent-unsaved.guard';
+import { UserAddRoutesComponent } from './users/user-add-routes/user-add-routes.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -17,7 +19,8 @@ const routes: Routes = [
     path: '', runGuardsAndResolvers: 'always', canActivate: [AuthGuard], 
     children: [
       {path: 'riders', component: UserListComponent},
-      {path: 'rider/edit', component: UserEditProfileComponent, pathMatch: 'full'},
+      {path: 'rider/edit', component: UserEditProfileComponent, pathMatch: 'full', canDeactivate: [PreventUnsavedGuard]},
+      {path: 'rider/routes', component: UserAddRoutesComponent, pathMatch: 'full'},
       {path: 'rider/:username', component: UserDetailsComponent},
       {path: 'lists', component: ListsComponent},
       {path: 'messages', component: MessagesComponent},

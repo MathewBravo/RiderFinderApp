@@ -15,7 +15,8 @@
     "imgUrl": "https://randomuser.me/api/portraits/women/80.jpg",
     "Routes": [
       {
-        "Url": "http://1n4rcn88bk4ziht713dla5ub-wpengine.netdna-ssl.com/wp-content/uploads/2014/05/Screen-Shot-2014-05-22-at-9.37.06-AM-1-800x499.png",
+        "Url": "66707637",
+        "Name": "Hausrunde",
         "Favorited": true
       }
     ]
@@ -36,7 +37,8 @@
     "imgUrl": "https://randomuser.me/api/portraits/women/41.jpg",
     "Routes": [
       {
-        "Url": "http://1n4rcn88bk4ziht713dla5ub-wpengine.netdna-ssl.com/wp-content/uploads/2014/05/Screen-Shot-2014-05-22-at-9.37.06-AM-1-800x499.png",
+        "Url": "66707637",
+        "Name": "Hausrunde",
         "Favorited": true
       }
     ]
@@ -57,7 +59,8 @@
     "imgUrl": "https://randomuser.me/api/portraits/women/82.jpg",
     "Routes": [
       {
-        "Url": "http://1n4rcn88bk4ziht713dla5ub-wpengine.netdna-ssl.com/wp-content/uploads/2014/05/Screen-Shot-2014-05-22-at-9.37.06-AM-1-800x499.png",
+        "Url": "66707637",
+        "Name": "Hausrunde",
         "Favorited": true
       }
     ]
@@ -78,7 +81,8 @@
     "imgUrl": "https://randomuser.me/api/portraits/women/31.jpg",
     "Routes": [
       {
-        "Url": "http://1n4rcn88bk4ziht713dla5ub-wpengine.netdna-ssl.com/wp-content/uploads/2014/05/Screen-Shot-2014-05-22-at-9.37.06-AM-1-800x499.png",
+        "Url": "66707637",
+        "Name": "Hausrunde",
         "Favorited": true
       }
     ]
@@ -99,7 +103,8 @@
     "imgUrl": "https://randomuser.me/api/portraits/women/90.jpg",
     "Routes": [
       {
-        "Url": "http://1n4rcn88bk4ziht713dla5ub-wpengine.netdna-ssl.com/wp-content/uploads/2014/05/Screen-Shot-2014-05-22-at-9.37.06-AM-1-800x499.png",
+        "Url": "66707637",
+        "Name": "Hausrunde",
         "Favorited": true
       }
     ]
@@ -120,7 +125,8 @@
     "imgUrl": "https://randomuser.me/api/portraits/men/28.jpg",
     "Routes": [
       {
-        "Url": "http://1n4rcn88bk4ziht713dla5ub-wpengine.netdna-ssl.com/wp-content/uploads/2014/05/Screen-Shot-2014-05-22-at-9.37.06-AM-1-800x499.png",
+        "Url": "66707637",
+        "Name": "Hausrunde",
         "Favorited": true
       }
     ]
@@ -141,7 +147,8 @@
     "imgUrl": "https://randomuser.me/api/portraits/men/44.jpg",
     "Routes": [
       {
-        "Url": "http://1n4rcn88bk4ziht713dla5ub-wpengine.netdna-ssl.com/wp-content/uploads/2014/05/Screen-Shot-2014-05-22-at-9.37.06-AM-1-800x499.png",
+        "Url": "66707637",
+        "Name": "Hausrunde",
         "Favorited": true
       }
     ]
@@ -162,7 +169,8 @@
     "imgUrl": "https://randomuser.me/api/portraits/men/43.jpg",
     "Routes": [
       {
-        "Url": "http://1n4rcn88bk4ziht713dla5ub-wpengine.netdna-ssl.com/wp-content/uploads/2014/05/Screen-Shot-2014-05-22-at-9.37.06-AM-1-800x499.png",
+        "Url": "66707637",
+        "Name": "Hausrunde",
         "Favorited": true
       }
     ]
@@ -183,7 +191,8 @@
     "imgUrl": "https://randomuser.me/api/portraits/men/44.jpg",
     "Routes": [
       {
-        "Url": "http://1n4rcn88bk4ziht713dla5ub-wpengine.netdna-ssl.com/wp-content/uploads/2014/05/Screen-Shot-2014-05-22-at-9.37.06-AM-1-800x499.png",
+        "Url": "66707637",
+        "Name": "Hausrunde",
         "Favorited": true
       }
     ]
@@ -204,23 +213,28 @@
     "imgUrl": "https://randomuser.me/api/portraits/men/37.jpg",
     "Routes": [
       {
-        "Url": "http://1n4rcn88bk4ziht713dla5ub-wpengine.netdna-ssl.com/wp-content/uploads/2014/05/Screen-Shot-2014-05-22-at-9.37.06-AM-1-800x499.png",
+        "Url": "66707637",
+        "Name": "Hausrunde",
         "Favorited": true
       },
       {
-        "Url": "https://www.mamilian.bike/wp-content/uploads/2020/07/strava-routes.png",
+        "Url": "66705360",
+        "Name": "Bucklige",
         "Favorited": false
       }
       ,{
-        "Url": "https://coresites-cdn-adm.imgix.net/mpora_new/wp-content/uploads/2014/08/Strava-Turkey.jpg",
+        "Url": "32844130",
+        "Name": "03/26/19",
         "Favorited": false
       }
       ,{
-        "Url": "https://cyclingmagazine.ca/wp-content/uploads/2020/10/a.png",
+        "Url": "66705551",
+        "Name": "Katzenturl",
         "Favorited": false
       }
       ,{
-        "Url": "https://lirp.cdn-website.com/206d278f/dms3rep/multi/opt/strava679531876-640w.jpg",
+        "Url": "66707497",
+        "Name": "Postalm",
         "Favorited": false
       }
     ]

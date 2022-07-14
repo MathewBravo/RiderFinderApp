@@ -10,109 +10,112 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace API.Data.Migrations
 {
-    [DbContext(typeof(DataContext))]
-    [Migration("20220711172839_ExtendedUserEntity")]
-    partial class ExtendedUserEntity
+  [DbContext(typeof(DataContext))]
+  [Migration("20220711172839_ExtendedUserEntity")]
+  partial class ExtendedUserEntity
+  {
+    protected override void BuildTargetModel(ModelBuilder modelBuilder)
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
-        {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "6.0.6");
+      modelBuilder.HasAnnotation("ProductVersion", "6.0.6");
 
-            modelBuilder.Entity("API.Entities.AppUser", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+      modelBuilder.Entity("API.Entities.AppUser", b =>
+          {
+            b.Property<int>("Id")
+                      .ValueGeneratedOnAdd()
+                      .HasColumnType("INTEGER");
 
-                    b.Property<string>("Bio")
-                        .HasColumnType("TEXT");
+            b.Property<string>("Bio")
+                      .HasColumnType("TEXT");
 
-                    b.Property<string>("City")
-                        .HasColumnType("TEXT");
+            b.Property<string>("City")
+                      .HasColumnType("TEXT");
 
-                    b.Property<string>("Country")
-                        .HasColumnType("TEXT");
+            b.Property<string>("Country")
+                      .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("TEXT");
+            b.Property<DateTime>("Created")
+                      .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("DateOfBirth")
-                        .HasColumnType("TEXT");
+            b.Property<DateTime>("DateOfBirth")
+                      .HasColumnType("TEXT");
 
-                    b.Property<string>("Email")
-                        .HasColumnType("TEXT");
+            b.Property<string>("Email")
+                      .HasColumnType("TEXT");
 
-                    b.Property<string>("FTP")
-                        .HasColumnType("TEXT");
+            b.Property<string>("FTP")
+                      .HasColumnType("TEXT");
 
-                    b.Property<string>("Gender")
-                        .HasColumnType("TEXT");
+            b.Property<string>("Gender")
+                      .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("LastActive")
-                        .HasColumnType("TEXT");
+            b.Property<DateTime>("LastActive")
+                      .HasColumnType("TEXT");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+            b.Property<string>("Name")
+                      .HasColumnType("TEXT");
 
-                    b.Property<byte[]>("PasswordHash")
-                        .HasColumnType("BLOB");
+            b.Property<byte[]>("PasswordHash")
+                      .HasColumnType("BLOB");
 
-                    b.Property<byte[]>("PasswordSalt")
-                        .HasColumnType("BLOB");
+            b.Property<byte[]>("PasswordSalt")
+                      .HasColumnType("BLOB");
 
-                    b.Property<string>("RideTypes")
-                        .HasColumnType("TEXT");
+            b.Property<string>("RideTypes")
+                      .HasColumnType("TEXT");
 
-                    b.Property<string>("UserName")
-                        .HasColumnType("TEXT");
+            b.Property<string>("UserName")
+                      .HasColumnType("TEXT");
 
-                    b.Property<string>("imgUrl")
-                        .HasColumnType("TEXT");
+            b.Property<string>("imgUrl")
+                      .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+            b.HasKey("Id");
 
-                    b.ToTable("Users");
-                });
+            b.ToTable("Users");
+          });
 
-            modelBuilder.Entity("API.Entities.Route", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+      modelBuilder.Entity("API.Entities.Route", b =>
+          {
+            b.Property<int>("Id")
+                      .ValueGeneratedOnAdd()
+                      .HasColumnType("INTEGER");
 
-                    b.Property<int>("AppUserId")
-                        .HasColumnType("INTEGER");
+            b.Property<int>("AppUserId")
+                      .HasColumnType("INTEGER");
 
-                    b.Property<bool>("Favorited")
-                        .HasColumnType("INTEGER");
+            b.Property<bool>("Favorited")
+                      .HasColumnType("INTEGER");
 
-                    b.Property<string>("URL")
-                        .HasColumnType("TEXT");
+            b.Property<string>("URL")
+                      .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+            b.Property<string>("Name")
+                      .HasColumnType("TEXT");
 
-                    b.HasIndex("AppUserId");
+            b.HasKey("Id");
 
-                    b.ToTable("Routes");
-                });
+            b.HasIndex("AppUserId");
 
-            modelBuilder.Entity("API.Entities.Route", b =>
-                {
-                    b.HasOne("API.Entities.AppUser", "AppUser")
-                        .WithMany("Route")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+            b.ToTable("Routes");
+          });
 
-                    b.Navigation("AppUser");
-                });
+      modelBuilder.Entity("API.Entities.Route", b =>
+          {
+            b.HasOne("API.Entities.AppUser", "AppUser")
+                      .WithMany("Route")
+                      .HasForeignKey("AppUserId")
+                      .OnDelete(DeleteBehavior.Cascade)
+                      .IsRequired();
 
-            modelBuilder.Entity("API.Entities.AppUser", b =>
-                {
-                    b.Navigation("Route");
-                });
+            b.Navigation("AppUser");
+          });
+
+      modelBuilder.Entity("API.Entities.AppUser", b =>
+          {
+            b.Navigation("Route");
+          });
 #pragma warning restore 612, 618
-        }
     }
+  }
 }

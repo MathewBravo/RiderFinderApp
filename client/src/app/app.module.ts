@@ -1,29 +1,30 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavComponent } from './nav/nav.component';
-import { FormsModule } from '@angular/forms';
-import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { HomeComponent } from './home/home.component';
-import { RegisterComponent } from './register/register.component';
-import { UserListComponent } from './users/user-list/user-list.component';
-import { UserDetailsComponent } from './users/user-details/user-details.component';
-import { ListsComponent } from './lists/lists.component';
-import { MessagesComponent } from './messages/messages.component';
-import { ToastrModule } from 'ngx-toastr';
 import { ErrorTestsComponent } from './errors/error-tests/error-tests.component';
-import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorsComponent } from './errors/server-errors/server-errors.component';
+import { HomeComponent } from './home/home.component';
+import { ListsComponent } from './lists/lists.component';
+import { MessagesComponent } from './messages/messages.component';
+import { NavComponent } from './nav/nav.component';
+import { RegisterComponent } from './register/register.component';
 import { RiderCardComponent } from './users/rider-card/rider-card.component';
-import { JwtInterceptor } from './_interceptors/jwt.interceptor';
-import { UserDetailCardComponent } from './users/user-details/user-detail-card/user-detail-card.component';
+import { UserDetailsComponent } from './users/user-details/user-details.component';
 import { UserEditProfileComponent } from './users/user-edit-profile/user-edit-profile.component';
+import { UserListComponent } from './users/user-list/user-list.component';
+import { ErrorInterceptor } from './_interceptors/error.interceptor';
+import { JwtInterceptor } from './_interceptors/jwt.interceptor';
+import { UserAddRoutesComponent } from './users/user-add-routes/user-add-routes.component';
+
 
 @NgModule({
   declarations: [
@@ -39,8 +40,8 @@ import { UserEditProfileComponent } from './users/user-edit-profile/user-edit-pr
     NotFoundComponent,
     ServerErrorsComponent,
     RiderCardComponent,
-    UserDetailCardComponent,
     UserEditProfileComponent,
+    UserAddRoutesComponent,
   ],
   imports: [
     BrowserModule,

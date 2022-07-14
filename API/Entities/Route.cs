@@ -11,6 +11,8 @@ namespace API.Entities
 
     public bool Favorited { get; set; }
 
+    public string? Name { get; set; }
+
     public AppUser AppUser { get; set; }
 
     public int AppUserId { get; set; }

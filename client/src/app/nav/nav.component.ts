@@ -42,6 +42,7 @@ export class NavComponent implements OnInit {
   logoutHandler(){
     this.accountService.logoutHandler();
     this.router.navigateByUrl('/');
+    location.reload();
   }
 
 }

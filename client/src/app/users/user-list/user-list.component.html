@@ -1,8 +1,7 @@
 <div class="container mx-auto mt-4">
   <div class="row">
-    <div *ngFor="let rider of users" class="col-md-4">
+    <div *ngFor="let rider of users$ | async" class="col-md-4">
       <app-rider-card class="cardStyle" [rider]="rider"></app-rider-card>
     </div>
   </div>
 </div>
-
