@@ -1,6 +1,6 @@
 export interface RiderRoutes {
-  id: number;
+  id?: number;
   url: string;
   name: string;
-  favorited: boolean;
+  favorited?: boolean;
 }

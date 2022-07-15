@@ -56,5 +56,10 @@ namespace API.Data
     {
       return await _context.Users.ProjectTo<RiderDto>(_mapper.ConfigurationProvider).ToListAsync();
     }
+
+    public Task GetUserByUsernameAsync(object value)
+    {
+      throw new NotImplementedException();
+    }
   }
 }

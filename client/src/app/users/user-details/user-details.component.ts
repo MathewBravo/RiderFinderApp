@@ -18,8 +18,8 @@ export class UserDetailsComponent implements OnInit {
 
   constructor(private riderService: RidersService, private activatedRoute: ActivatedRoute, private sanitizer: DomSanitizer){ }
 
-  iframeSrc = "https://ridewithgps.com/embeds?type=trip&id=66707637&metricUnits=true&sampleGraph=true";
-  iframeSrcPrefix = "https://ridewithgps.com/embeds?type=trip&id=";
+  iframeSrc = "https://ridewithgps.com/embeds?type=route&id=66707637&metricUnits=true&sampleGraph=true";
+  iframeSrcPrefix = "https://ridewithgps.com/embeds?type=route&id=";
   iframeSrcSuffix = "&metricUnits=true&sampleGraph=true";
 
   onChangeHandler(event){

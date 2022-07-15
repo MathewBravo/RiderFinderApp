@@ -1,17 +1,19 @@
 <div class="add-routes">
   <div class="add-route-selector p-3">
-    <select name="routes" id="route" size="10" class="selector m-3">
-      <option *ngFor="let route of rider.routes" [value]="route.url">
+    <select [(ngModel)]="selectedRoute" (change)="currentSelection($event)" name="routes" id="route" size="10" class="selector m-3">
+      <option *ngFor="let route of rider.routes" [value]="route.id">
         {{ route.name }}
       </option>
     </select>
-    <button class="remove-button btn btn-danger btn-lg">Remove Selected</button>
+    <button class="remove-button btn btn-danger btn-lg" (click)="deleteRoutes()">Remove Selected</button>
   </div>
   <div class="add-route-handler">
-    <input type="text" name="routeId" id="routeId" />
-    <label for="routeId">Route ID</label>
-    <input type="text" name="routeName" id="routeName" />
-    <label for="routeName">Route Name</label>
-    <button class="add-button btn btn-success btn-lg mt-4">Add Route</button>
+    <form action="" (submit)="addRoutes($event)">
+      <input [(ngModel)]="routeId" type="text" name="routeId" id="routeId" />
+      <label for="routeId">Route ID</label>
+      <input [(ngModel)]="routeName" type="text" name="routeName" id="routeName" />
+      <label for="routeName">Route Name</label>
+      <button type="submit" class="add-button btn btn-success btn-lg mt-4">Add Route</button>
+    </form>
   </div>
 </div>

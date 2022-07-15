@@ -2,11 +2,14 @@ using System.Security.Claims;
 using API.Data;
 using API.DTOs;
 using API.Entities;
+using Microsoft.AspNetCore.Identity;
+
 using API.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Route = API.Entities.Route;
 
 namespace API.Controllers
 {
@@ -60,6 +63,45 @@ namespace API.Controllers
       }
 
       return BadRequest("Could not update user");
+    }
+
+    [HttpPut("add-route")]
+    public async Task<ActionResult> AddRoute(RouteDto routeDto)
+    {
+      var riderName = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var rider = await _userRepository.GetUserByUsernameAsync(riderName);
+      var _route = _mapper.Map<Route>(routeDto);
+      _route.AppUser = rider;
+      _route.AppUserId = rider.Id;
+      _userRepository.Update(rider);
+      rider.Routes.Add(_route);
+      if (await _userRepository.SaveAllAsync())
+      {
+        return NoContent();
+      }
+      return BadRequest("Could not add route");
+    }
+
+
+    [HttpDelete("delete-route/{routeId}")]
+    public async Task<ActionResult> DeleteRoute(int routeId)
+    {
+      var riderName = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var rider = await _userRepository.GetUserByUsernameAsync(riderName);
+      var route = rider.Routes.FirstOrDefault(r => r.Id == routeId);
+      Console.Write("Hello");
+      if (route == null)
+      {
+        return NotFound();
+      }
+      rider.Routes.Remove(route);
+      _userRepository.Update(rider);
+      if (await _userRepository.SaveAllAsync())
+      {
+        return Ok();
+      }
+      return BadRequest("Could not delete route");
+
     }
   }
 }

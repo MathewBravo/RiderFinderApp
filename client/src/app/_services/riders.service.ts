@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { map, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Rider } from '../_models/rider';
+import { RiderRoutes } from '../_models/riderroutes';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { Rider } from '../_models/rider';
 export class RidersService {
   baseUrl = environment.apiUrl;
   riders: Rider[] = [];
+
 
   constructor(private http: HttpClient) { }
 
@@ -39,5 +41,13 @@ export class RidersService {
         this.riders[riderIndex] = rider;
       })
     )
+  }
+
+  deleteRouteHanlder(routeId: number){
+    return this.http.delete(this.baseUrl + 'users/delete-route/' + routeId);
+  }
+
+  addRouteHandler(route: RiderRoutes){
+    return this.http.put(this.baseUrl + 'users/add-route/', route);
   }
 }

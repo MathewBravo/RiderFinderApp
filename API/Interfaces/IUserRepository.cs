@@ -22,5 +22,6 @@ namespace API.Interfaces
     Task<IEnumerable<RiderDto>> GetRidersAsync();
 
     Task<RiderDto> GetRiderAsync(string username);
+    Task GetUserByUsernameAsync(object value);
   }
 }
