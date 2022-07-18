@@ -3,68 +3,102 @@
     <div class="card-header">
       <h3 class="mb-0 text-white">Sign Up</h3>
     </div>
-    <div class="card-body">
-      <form
-        autocomplete="off"
-        (ngSubmit)="registerHandler()"
-        class="form"
-        role="form"
-        ngNativeValidate
-      >
-        <div class="form-group">
-          <label for="inputName">Username</label>
-          <input
-            class="form-control"
-            id="inputName"
-            placeholder="Username"
-            name="userName"
-            required
-            type="text"
-            [(ngModel)]="model.userName"
-          />
-        </div>
-        <div class="form-group">
-          <label for="inputEmail">Email</label>
-          <input
-            class="form-control"
-            id="inputEmail"
-            placeholder="Email"
-            required
-            name="email"
-            type="email"
-            [(ngModel)]="model.email"
-          />
-        </div>
-        <div class="form-group">
-          <label for="inputPassword">Password</label>
-          <input
-            class="form-control"
-            id="inputPassword"
-            placeholder="Password"
-            required
-            name="password"
+    <form
+      [formGroup]="registrationForm"
+      (ngSubmit)="registrationForm.valid && registerHandler()"
+      action=""
+    >
+      <div class="card-body">
+        <div class="card-body">
+          <app-text-input-forms
+            [formControl]="
+              registrationForm.controls['username']
+            "
+            [label]="'Username'"
+          ></app-text-input-forms>
+          <app-text-input-forms
+            [formControl]="
+              registrationForm.controls['email']
+            "
+            [label]="'Email'"
+          ></app-text-input-forms>
+          <app-text-input-forms
+            [formControl]="
+              registrationForm.controls['password']
+            "
+            [label]="'Password'"
             type="password"
-            [(ngModel)]="model.password"
-          />
-          <small class="form-text text-white" id="passwordHelpBlock"
-            >Your password must be 8-20 characters long, contain letters and
-            numbers, and must not contain spaces, special characters, or
-            emoji.</small
+          ></app-text-input-forms>
+          <app-text-input-forms
+            [formControl]="
+              registrationForm.controls['confirmPassword']
+            "
+            [label]="'Verify Password'"
+            type="password"
+          ></app-text-input-forms>
+          <app-text-input-forms
+            [formControl]="
+              registrationForm.controls['name']
+            "
+            [label]="'Name'"
+          ></app-text-input-forms>
+          <div class="form-group mt-3 mb-3">
+            <label for="" class="control-label"
+              >Gender Identity:
+            </label>
+            <label for="" class="radio-inline">
+              <input
+                type="radio"
+                value="male"
+                formControlName="gender"
+              />
+              Male
+            </label>
+            <label for="" class="radio-inline">
+              <input
+                type="radio"
+                value="female"
+                formControlName="gender"
+              />
+              Female
+            </label>
+            <label for="" class="radio-inline">
+              <input
+                type="radio"
+                value="non-binary"
+                formControlName="gender"
+                [checked]="true"
+                checked="checked"
+              />
+              Non-Binary
+            </label>
+          </div>
+          <app-text-input-forms
+            [formControl]="
+              registrationForm.controls['city']
+            "
+            [label]="'City'"
+          ></app-text-input-forms>
+          <app-text-input-forms
+            [formControl]="
+              registrationForm.controls['country']
+            "
+            [label]="'Country'"
+          ></app-text-input-forms>
+          <app-date-input-forms
+            [formControl]="
+              registrationForm.controls['dateOfBirth']
+            "
+            [maxDate]="maxDate"
+            [label]="'Date Of Birth'"
+          ></app-date-input-forms>
+        </div>
+        <div class="form-group">
+          <button
+            [disabled]="!registrationForm.valid"
+            class="btn mt-3 btn-lg float-right register"
+            type="submit"
           >
-        </div>
-        <!-- <div class="form-group">
-          <label for="inputVerify">Verify</label>
-          <input
-            class="form-control"
-            id="inputVerify"
-            placeholder="Password (again)"
-            required=""
-            type="password"
-            [(ngModel)]="model.verify"
-          />
-        </div> -->
-        <div class="form-group">
-          <button class="btn mt-3 btn-lg float-right register" type="submit">
             Register
           </button>
           <button
@@ -75,7 +109,9 @@
             Cancel
           </button>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   </div>
 </div>
+
+
