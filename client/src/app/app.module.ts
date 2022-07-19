@@ -33,6 +33,7 @@ import { UserAddRoutesComponent } from './users/user-add-routes/user-add-routes.
 import { TextInputFormsComponent } from './_forms/text-input-forms/text-input-forms.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { DateInputFormsComponent } from './_forms/date-input-forms/date-input-forms.component';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { DateInputFormsComponent } from './_forms/date-input-forms/date-input-fo
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
+    PaginationModule.forRoot(),
   ],
   providers: [
     {

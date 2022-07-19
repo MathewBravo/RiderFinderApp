@@ -1,44 +1,65 @@
 <div *ngIf="rider" class="edit-profile">
-  <form #editForm="ngForm" id="editForm"  (ngSubmit)="updateRider()">
+  <form
+    #editForm="ngForm"
+    id="editForm"
+    (ngSubmit)="updateRider()"
+  >
     <h1>{{ rider.name }}</h1>
     <div class="display-Name div">
       <label for="displayName">Display Name</label>
       <input
-      class="readonlyInput"
-      type="text"
-      name="displayName"
-      readonly="true"
-      placeholder="{{ rider.userName }}"
-    />
+        class="readonlyInput"
+        type="text"
+        name="displayName"
+        readonly="true"
+        placeholder="{{ rider.userName }}"
+      />
+    </div>
+    <div class="country-city div">
+      <label for="country">Country:</label>
+      <input
+        class="input"
+        type="text"
+        name="country"
+        [(ngModel)]="rider.country"
+      />
+      <label for="city">City:</label>
+      <input
+        class="input"
+        type="text"
+        name="city"
+        [(ngModel)]="rider.city"
+      />
+    </div>
+    <div class="current-ftp div">
+      <label for="ftp">FTP:</label>
+      <input
+        [(ngModel)]="rider.ftp"
+        class="input"
+        type="text"
+        name="ftp"
+      />
+    </div>
+    <div class="current-bio">
+      <p class="bio-label">Bio:</p>
+      <textarea
+        class="form-control"
+        [(ngModel)]="rider.bio"
+        name="bio"
+      ></textarea>
+    </div>
+  </form>
+  <button
+    [disabled]="!editForm.dirty"
+    form="editForm"
+    type="submit"
+    class="edit-button btn btn-success btn-lg mt-4"
+  >
+    Save Changes
+  </button>
+  <div class="warning" *ngIf="editForm.dirty">
+    <div class="alert alert-info">
+      <strong>Any Unsaved Changes Will Be Lost</strong>
+    </div>
   </div>
-  <div class="country-city div">
-    <label for="country">Country:</label>
-    <input
-    class="input"
-    type="text"
-      name="country"
-      [(ngModel)]="rider.country"
-    />
-    <label for="city">City:</label>
-    <input class="input" type="text" name="city" [(ngModel)]="rider.city" />
-  </div>
-  <div class="current-ftp div">
-    <label for="ftp">FTP:</label>
-    <input [(ngModel)]="rider.ftp" class="input" type="text" name="ftp" />
-  </div>
-  <div class="current-bio">
-    <p class="bio-label">Bio:</p>
-    <textarea
-    class="form-control"
-    [(ngModel)]="rider.bio"
-    name="bio"
-    ></textarea>
-  </div>
-</form>
-<button [disabled]="!editForm.dirty" form="editForm" type="submit" class="edit-button btn btn-success btn-lg mt-4">Save Changes</button>
-<div class="warning" *ngIf="editForm.dirty">
-  <div class="alert alert-info" >
-    <strong>Any Unsaved Changes Will Be Lost</strong>
-  </div>
-</div>
 </div>

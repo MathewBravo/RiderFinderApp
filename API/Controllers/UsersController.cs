@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Route = API.Entities.Route;
+using API.Helpers;
+using API.Extensions;
 
 namespace API.Controllers
 {
@@ -29,9 +31,13 @@ namespace API.Controllers
     }
 
     [HttpGet]// This attribute allows anonymous users to access this method.
-    public async Task<ActionResult<IEnumerable<RiderDto>>> GetUsers()
+    public async Task<ActionResult<IEnumerable<RiderDto>>> GetUsers([FromQuery] UserParams userParams)
     {
-      var users = await _userRepository.GetRidersAsync();
+      var rider = await _userRepository.GetUserByUsernameAsync(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+      userParams.CurrentUserName = rider.UserName;
+      Console.Write("hello");
+      var users = await _userRepository.GetRidersAsync(userParams);
+      Response.AddPagination(users.CurrentPage, users.PageSize, users.TotalCount, users.TotalPages);
       return Ok(users);
     }
 

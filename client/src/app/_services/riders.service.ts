@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { PaginatedResult } from '../_models/paginations';
 import { Rider } from '../_models/rider';
 import { RiderRoutes } from '../_models/riderroutes';
 
@@ -11,17 +12,24 @@ import { RiderRoutes } from '../_models/riderroutes';
 export class RidersService {
   baseUrl = environment.apiUrl;
   riders: Rider[] = [];
+  paginatedResults: PaginatedResult<Rider[]> = new PaginatedResult<Rider[]>();
 
 
   constructor(private http: HttpClient) { }
 
-  getRidersHandler(){
-    if(this.riders.length > 0) {
-      return of(this.riders); // return observable of riders
+  getRidersHandler(page? : number, itemsPerPage? : number){
+    let params = new HttpParams();
+    if (page != null && itemsPerPage != null) {
+      params = params.append('pageNumber', page.toString());
+      params = params.append('pageSize', itemsPerPage.toString());
     }
-    return this.http.get<Rider[]>(this.baseUrl + 'users').pipe(map(riders => {
-      this.riders = riders;
-      return riders;
+    // when you observe a response, you get a response object not the body
+    return this.http.get<Rider[]>(this.baseUrl + 'users', {observe: 'response', params}).pipe(map(response =>{
+      this.paginatedResults.result = response.body;
+      if( response.headers.get('Pagination') != null){
+        this.paginatedResults.pagination = JSON.parse(response.headers.get('Pagination'));
+      }
+      return this.paginatedResults;
     }));
   }
 

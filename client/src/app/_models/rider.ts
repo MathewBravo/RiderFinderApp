@@ -1,20 +1,19 @@
-import { RiderRoutes } from "./riderroutes";
+import { RiderRoutes } from './riderroutes';
 
-export interface Rider{
-    id: number;
-    userName: string;
-    name: string;
-    email: string;
-    city: string;
-    country: string;
-    bio: string;
-    imgUrl: string;
-    createdAt: Date;
-    updatedAt: Date;
-    gender: string;
-    ftp: string;
-    age: number;
-    rideTypes: string;
-    routes: RiderRoutes[];
+export interface Rider {
+  id: number;
+  userName: string;
+  name: string;
+  email: string;
+  city: string;
+  country: string;
+  bio: string;
+  imgUrl: string;
+  createdAt: Date;
+  updatedAt: Date;
+  gender: string;
+  ftp: number;
+  age: number;
+  rideTypes: string;
+  routes: RiderRoutes[];
 }
-
