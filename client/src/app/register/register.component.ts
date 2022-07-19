@@ -48,7 +48,7 @@ export class RegisterComponent implements OnInit {
       .registerHandler(this.registrationForm.value)
       .subscribe(
         (response) => {
-          this.router.navigateByUrl('/riders');
+          this.router.navigateByUrl('/rider/edit');
           this.cancelHandler();
         },
         (error) => {
