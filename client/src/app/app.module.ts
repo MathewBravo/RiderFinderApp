@@ -34,6 +34,7 @@ import { TextInputFormsComponent } from './_forms/text-input-forms/text-input-fo
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { DateInputFormsComponent } from './_forms/date-input-forms/date-input-forms.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
       preventDuplicates: true,
     }),
     PaginationModule.forRoot(),
+    ButtonsModule.forRoot(),
   ],
   providers: [
     {

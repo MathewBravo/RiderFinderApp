@@ -1,3 +1,21 @@
 .cardStyle {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+
+.inline-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding-bottom: 1rem;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.ftp-label {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}

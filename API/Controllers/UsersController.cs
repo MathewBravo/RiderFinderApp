@@ -33,7 +33,7 @@ namespace API.Controllers
     [HttpGet]// This attribute allows anonymous users to access this method.
     public async Task<ActionResult<IEnumerable<RiderDto>>> GetUsers([FromQuery] UserParams userParams)
     {
-      var rider = await _userRepository.GetUserByUsernameAsync(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+      var rider = await _userRepository.GetUserByUsernameAsync(User.FindFirst(ClaimTypes.Name)?.Value);
       userParams.CurrentUserName = rider.UserName;
       Console.Write("hello");
       var users = await _userRepository.GetRidersAsync(userParams);
@@ -56,7 +56,7 @@ namespace API.Controllers
     public async Task<ActionResult> UpdateUser(RiderUpdateDto riderUpdateDto)
     {
       //get the user from the database
-      var riderName = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var riderName = User.FindFirst(ClaimTypes.Name)?.Value;
       var rider = await _userRepository.GetUserByUsernameAsync(riderName);
       //update the user
       _mapper.Map(riderUpdateDto, rider);
@@ -74,7 +74,7 @@ namespace API.Controllers
     [HttpPut("add-route")]
     public async Task<ActionResult> AddRoute(RouteDto routeDto)
     {
-      var riderName = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var riderName = User.FindFirst(ClaimTypes.Name)?.Value;
       var rider = await _userRepository.GetUserByUsernameAsync(riderName);
       var _route = _mapper.Map<Route>(routeDto);
       _route.AppUser = rider;
@@ -92,7 +92,7 @@ namespace API.Controllers
     [HttpDelete("delete-route/{routeId}")]
     public async Task<ActionResult> DeleteRoute(int routeId)
     {
-      var riderName = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var riderName = User.FindFirst(ClaimTypes.Name)?.Value;
       var rider = await _userRepository.GetUserByUsernameAsync(riderName);
       var route = rider.Routes.FirstOrDefault(r => r.Id == routeId);
       Console.Write("Hello");

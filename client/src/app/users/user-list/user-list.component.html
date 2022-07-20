@@ -1,4 +1,67 @@
 <div class="container mx-auto mt-4">
+  <div class="container mt-3">
+    <form
+      #form="ngForm"
+      class="inline-form"
+      (ngSubmit)="loadUsers()"
+      autoComplete="off"
+      action=""
+    >
+      <div class="form-group ftp-label">
+        <label for="">FTP From:</label>
+        <input
+          type="number"
+          class="form-control ml-1"
+          style="width: 100px"
+          name="minFtp"
+          [(ngModel)]="userParams.minFtp"
+        />
+      </div>
+      <div class="form-group ftp-label">
+        <label for="">FTP To:</label>
+        <input
+          type="number"
+          class="form-control ml-1"
+          style="width: 100px"
+          name="maxFtp"
+          [(ngModel)]="userParams.maxFtp"
+        />
+      </div>
+      <button class="btn btn-primary" type="submit">
+        Apply Filters
+      </button>
+      <button
+        (click)="resetFilters()"
+        class="btn btn-info"
+        type="submit"
+      >
+        Reset Filters
+      </button>
+      <div class="btn-group float-right">
+        <button
+          type="button"
+          class="btn btn-primary"
+          name="orderBy"
+          [(ngModel)]="userParams.orderBy"
+          (click)="loadUsers()"
+          btnRadio="FtpA"
+        >
+          Ftp Asc
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          name="orderBy"
+          [(ngModel)]="userParams.orderBy"
+          (click)="loadUsers()"
+          btnRadio="FtpD"
+        >
+          Ftp Desc
+        </button>
+      </div>
+    </form>
+  </div>
+
   <div class="row">
     <div *ngFor="let rider of riders" class="col-md-4">
       <app-rider-card

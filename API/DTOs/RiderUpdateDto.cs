@@ -8,7 +8,7 @@ namespace API.DTOs
   public class RiderUpdateDto
   {
     public string Bio { get; set; }
-    public string FTP { get; set; }
+    public int FTP { get; set; }
     public string Country { get; set; }
     public string City { get; set; }
   }

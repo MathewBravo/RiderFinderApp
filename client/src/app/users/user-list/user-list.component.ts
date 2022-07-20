@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 import { Pagination } from 'src/app/_models/paginations';
 import { Rider } from 'src/app/_models/rider';
 import { User } from 'src/app/_models/user';
+import { UserParams } from 'src/app/_models/userParams';
+import { AccountService } from 'src/app/_services/account.service';
 import { RidersService } from 'src/app/_services/riders.service';
 
 @Component({
@@ -13,17 +15,18 @@ import { RidersService } from 'src/app/_services/riders.service';
 export class UserListComponent implements OnInit {
   riders: Rider[];
   pagination: Pagination;
-  pageNumber = 1;
-  pageSize = 6;
+  userParams: UserParams;;
 
-  constructor(private riderService: RidersService) { }
+  constructor(private riderService: RidersService, private accountService: AccountService) {
+    this.userParams = new UserParams();
+   }
 
   ngOnInit(): void {
     this.loadUsers();
   }
 
   loadUsers() {
-    this.riderService.getRidersHandler(this.pageNumber, this.pageSize).subscribe(
+    this.riderService.getRidersHandler(this.userParams).subscribe(
       (res) => {
         console.log(res);
         this.riders = res.result;
@@ -32,9 +35,14 @@ export class UserListComponent implements OnInit {
     );
   }
 
+  resetFilters(){
+    this.userParams = new UserParams()
+    this.loadUsers();
+  }
+
   pageChanged(event: any): void {
     console.log(event)
-    this.pageNumber = event.page;
+    this.userParams.pageNumber = event.page;
     this.loadUsers();
   }
 }

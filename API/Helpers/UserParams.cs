@@ -19,7 +19,9 @@ namespace API.Helpers
 
     public string? CurrentUserName { get; set; }
 
-    public string MinFtp { get; set; } = "200";
-    public string MaxFtp { get; set; } = "800";
+    public int MinFtp { get; set; } = 200;
+    public int MaxFtp { get; set; } = 1000;
+
+    public string OrderBy { get; set; } = "Ftp";
   }
 }

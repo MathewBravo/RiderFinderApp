@@ -43,7 +43,7 @@ namespace API.Data.Migrations
             b.Property<string>("Email")
                       .HasColumnType("TEXT");
 
-            b.Property<string>("FTP")
+            b.Property<int>("FTP")
                       .HasColumnType("TEXT");
 
             b.Property<string>("Gender")

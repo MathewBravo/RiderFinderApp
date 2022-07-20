@@ -16,6 +16,7 @@ namespace API.Extensions
     {
       services.AddScoped<ITokenService, TokenService>();
       services.AddScoped<IUserRepository, UserRepository>();
+      services.AddScoped<LogUserLastActive>();
       services.AddAutoMapper(typeof(AutoMapProfiles).Assembly);
       services.AddDbContext<DataContext>(options =>
       {

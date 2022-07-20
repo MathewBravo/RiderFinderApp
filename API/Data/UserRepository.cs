@@ -58,6 +58,17 @@ namespace API.Data
       var query = _context.Users.AsQueryable();
 
       query = query.Where(user => user.UserName != userParams.CurrentUserName);
+      var MinFtp = userParams.MinFtp;
+      var MaxFtp = userParams.MaxFtp;
+
+      query = query.Where(user => user.FTP >= MinFtp && user.FTP <= MaxFtp);
+
+      query = userParams.OrderBy switch
+      {
+        "FtpD" => query.OrderByDescending(user => user.FTP),
+        "FtpA" => query.OrderBy(user => user.FTP),
+        _ => query.Where(user => user.UserName != userParams.CurrentUserName),
+      };
 
       return await PagedList<RiderDto>.CreateAsync(query.ProjectTo<RiderDto>(_mapper.ConfigurationProvider)
           .AsNoTracking(), userParams.PageNumber, userParams.PageSize);

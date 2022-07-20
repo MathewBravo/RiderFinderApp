@@ -47,10 +47,10 @@ namespace API.Data.Migrations
           type: "TEXT",
           nullable: true);
 
-      migrationBuilder.AddColumn<string>(
+      migrationBuilder.AddColumn<int>(
           name: "FTP",
           table: "Users",
-          type: "TEXT",
+          type: "INTERGER",
           nullable: true);
 
       migrationBuilder.AddColumn<string>(

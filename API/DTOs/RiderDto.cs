@@ -30,7 +30,7 @@ namespace API.DTOs
 
     public string? imgUrl { get; set; }
 
-    public string? FTP { get; set; }
+    public int? FTP { get; set; }
 
     public string? RideTypes { get; set; }
 
