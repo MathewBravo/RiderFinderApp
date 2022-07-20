@@ -17,8 +17,8 @@ export class UserListComponent implements OnInit {
   pagination: Pagination;
   userParams: UserParams;;
 
-  constructor(private riderService: RidersService, private accountService: AccountService) {
-    this.userParams = new UserParams();
+  constructor(private riderService: RidersService, ) {
+     this.userParams = this.riderService.getUeserParams();
    }
 
   ngOnInit(): void {
@@ -26,6 +26,7 @@ export class UserListComponent implements OnInit {
   }
 
   loadUsers() {
+    this.riderService.setUserParams(this.userParams);
     this.riderService.getRidersHandler(this.userParams).subscribe(
       (res) => {
         console.log(res);
@@ -36,13 +37,13 @@ export class UserListComponent implements OnInit {
   }
 
   resetFilters(){
-    this.userParams = new UserParams()
+    this.userParams = this.riderService.resetUserParams();
     this.loadUsers();
   }
 
   pageChanged(event: any): void {
-    console.log(event)
     this.userParams.pageNumber = event.page;
+    this.riderService.setUserParams(this.userParams);
     this.loadUsers();
   }
 }

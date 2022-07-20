@@ -6,6 +6,7 @@ import { PaginatedResult } from '../_models/paginations';
 import { Rider } from '../_models/rider';
 import { RiderRoutes } from '../_models/riderroutes';
 import { UserParams } from '../_models/userParams';
+import { AccountService } from 'src/app/_services/account.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,18 +15,32 @@ export class RidersService {
   baseUrl = environment.apiUrl;
   riders: Rider[] = [];
   riderCache = new Map();
+  userParams: UserParams;
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private accountService: AccountService) { 
+    this.userParams = new UserParams();
+  }
+
+  getUeserParams(){
+    return this.userParams;
+  }
+
+  setUserParams(userParams: UserParams){
+    this.userParams = userParams;
+  }
+
+  resetUserParams(){
+    this.userParams = new UserParams();
+    return this.userParams;
+  }
 
   getRidersHandler(userParams : UserParams){
     var res = this.riderCache.get(Object.values(userParams).join('-'));
     if(res){ 
       return of(res);
     }
-    
     let params = this.getPaginationHeaders(userParams.pageNumber, userParams.pageSize);
-    
     params = params.append('minFtp', userParams.minFtp.toString());
     params = params.append('maxFtp', userParams.maxFtp.toString());
     params = params.append('orderBy', userParams.orderBy.toString());
@@ -61,8 +76,10 @@ export class RidersService {
     const rider = [...this.riderCache.values()].reduce((acc, curr) => {
       return acc.concat(curr.result);
     }
-    , []).find(r => r.username === username);
-    //return of(rider);
+    , []).find((r: Rider) => r.userName === username);
+    if(rider){
+      return of(rider);
+    }
     return this.http.get<Rider>(this.baseUrl + 'users/' + username);
     // const rider = this.riders.find(r => r.userName === username);
     // if (rider !== undefined) {
